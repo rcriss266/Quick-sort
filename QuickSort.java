@@ -36,6 +36,16 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
+        int[] numeros = {8, 3, 1, 7, 0, 10, 2};
+
+        System.out.println("Arreglo original:");
+        imprimirArreglo(numeros);
+
+        quickSort(numeros, 0, numeros.length - 1);
+
+        System.out.println("Arreglo ordenado:");
+        imprimirArreglo(numeros);
+
 
     }
 }
