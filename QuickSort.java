@@ -27,6 +27,13 @@ public class QuickSort {
 
         return i + 1;
     }
+    public static void imprimirArreglo(int[] arr) {
+    for (int num : arr) {
+        System.out.print(num + " ");
+    }
+    System.out.println();
+}
+
 
     public static void main(String[] args) {
 
