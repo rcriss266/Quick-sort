@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+
 public class QuickSort {
 
     public static void quickSort(int[] arr, int inicio, int fin) {
@@ -27,28 +31,40 @@ public class QuickSort {
 
         return i + 1;
     }
-    public static void imprimirArreglo(int[] arr) {
-    for (int num : arr) {
-        System.out.print(num + " ");
-    }
-    System.out.println();
-}
 
+    public static void imprimirArreglo(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
-        int[] numeros = {8, 3, 1, 7, 0, 10, 2};
+        try {
+            Scanner sc = new Scanner(new File("Entrada.txt"));
+            List<Integer> lista = new ArrayList<>();
 
-        System.out.println("Arreglo original:");
-        imprimirArreglo(numeros);
+            while (sc.hasNextInt()) {
+                lista.add(sc.nextInt());
+            }
+            sc.close();
 
-        quickSort(numeros, 0, numeros.length - 1);
+            int[] numeros = lista.stream().mapToInt(Integer::intValue).toArray();
 
-        System.out.println("Arreglo ordenado:");
-        imprimirArreglo(numeros);
+            System.out.println("Arreglo original:");
+            imprimirArreglo(numeros);
 
+            quickSort(numeros, 0, numeros.length - 1);
 
+            System.out.println("Arreglo ordenado:");
+            imprimirArreglo(numeros);
+
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
 }
+
 
 
 
